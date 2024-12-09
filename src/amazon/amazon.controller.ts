@@ -6,7 +6,10 @@ export class AmazonController {
   constructor(private readonly amazonService: AmazonService) {}
 
   @Get('products')
-  getProducts(@Query('product') product: string) {
-    return this.amazonService.getProducts(product);
+  getProducts(
+    @Query('product') product: string,
+    @Query('numPages') numPages: number,
+  ) {
+    return this.amazonService.getProducts(product, numPages);
   }
 }
